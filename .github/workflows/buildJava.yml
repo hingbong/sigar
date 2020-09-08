@@ -15,12 +15,10 @@ jobs:
       - name: Build with Ant
         working-directory: bindings/java
         run: ant
-      - name: Set up Java for publishing to GitHub Packages
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
+      - name: maven-setings-action
+        uses: s4u/maven-settings-action@v2.1.1
       - name: Publish to GitHub Packages
-        run: mvn -B deploy
+        run: mvn -B deploy:deploy-file -Dfile=./sigar.jar -DrepositoryId=github -DpomFile=./pom.xml -Durl=https://maven.pkg.github.com/hingbong/sigar -Dtoken=$GITHUB_TOKEN
         working-directory: bindings/java/sigar-bin/lib
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
