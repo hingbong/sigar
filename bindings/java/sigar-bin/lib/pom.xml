@@ -6,4 +6,11 @@
     <artifactId>sigar</artifactId>
     <version>1.7.0.0</version>
     <name>sigar</name>
+    <distributionManagement>
+             <repository>
+               <id>github</id>
+               <name>GitHub Packages</name>
+               <url>https://maven.pkg.github.com/hingbong/sigar</url>
+             </repository>
+  </distributionManagement>
 </project>
